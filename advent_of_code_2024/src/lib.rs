@@ -1,5 +1,6 @@
 use std::fs;
 pub mod day_1;
+pub mod day_2;
 pub mod prelude;
 
 pub fn read_input_lines(file_path: &str) -> anyhow::Result<Vec<String>> {
