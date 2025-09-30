@@ -12,25 +12,22 @@ class Day1 {
 
     @Test
     fun pt1() {
-        val ans = input.map {
-            when (it) {
-                '(' -> 1
-                else -> -1
-            }
-        }.sum()
+        val ans = input.map(convertToFloors()).sum()
         println(ans)
         assertEquals(138,ans)
     }
 
     @Test
     fun pt2() {
-        val ans = input.map {
-            when (it) {
-                '(' -> 1
-                else -> -1
-            }
-        }.runningReduce { acc, it -> acc + it }.indexOfFirst { it == -1 } + 1
+        val ans = input.map(convertToFloors()).runningReduce { acc, it -> acc + it }.indexOfFirst { it == -1 } + 1
         println(ans)
         assertEquals(1771,ans)
+    }
+
+    private fun convertToFloors(): (Char) -> Int = {
+        when (it) {
+            '(' -> 1
+            else -> -1
+        }
     }
 }
