@@ -19,7 +19,9 @@ class Day1 {
 
     @Test
     fun pt2() {
-        val ans = input.map(convertToFloors()).runningReduce { acc, it -> acc + it }.indexOfFirst { it == -1 } + 1
+        val ans = input.map(convertToFloors())
+            .runningReduce { acc, it -> acc + it }
+            .indexOfFirst { it == -1 } + 1
         println(ans)
         assertEquals(1771,ans)
     }
