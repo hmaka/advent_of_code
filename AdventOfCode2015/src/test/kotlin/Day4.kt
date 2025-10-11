@@ -4,7 +4,6 @@ import kotlin.test.assertEquals
 import java.math.BigInteger
 import java.security.MessageDigest
 
-data class State(var x: Int, var y: Int, var seen: MutableMap<Pair<Int,Int>,Int>)
 
 class Day4 {
     private val input: String
@@ -20,15 +19,16 @@ class Day4 {
        while (!md5(input + candidate.toString()).startsWith("00000")){
            candidate += 1
        }
-       println(candidate)
+       assertEquals(346386,candidate)
    }
 
+    @Test
     fun pt2(){
         var candidate = 0
         while (!md5(input + candidate.toString()).startsWith("000000")){
             candidate += 1
         }
-        println(candidate)
+        assertEquals(9958218,candidate)
     }
 
      fun md5(input: String): String {
