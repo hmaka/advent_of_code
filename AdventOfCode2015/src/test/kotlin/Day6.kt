@@ -64,7 +64,7 @@ class Day6 {
                 line.contains("toggle") -> Switch.Flip
                 else -> error("invalid input")
             }
-            val nums = getNumbersFrom(line)
+            val nums = line.getNumbersFrom()
             Triple(switch,V(nums[0],nums[1]),V(nums[2],nums[3]))
         }
 
@@ -86,7 +86,7 @@ class Day6 {
                 line.contains("toggle") -> Switch.Flip
                 else -> error("invalid input")
             }
-            val nums = getNumbersFrom(line)
+            val nums = line.getNumbersFrom()
             Triple(switch, V(nums[0], nums[1]), V(nums[3], nums[4]))
         }
 

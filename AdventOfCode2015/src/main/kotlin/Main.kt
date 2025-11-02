@@ -34,9 +34,9 @@ fun <T, R> List<List<T>>.flatMap2DNotNull(transform: (V, T) -> R?): List<R> {
 }
 
 
-fun getNumbersFrom(input: String): List<Int> {
+fun String.getNumbersFrom(): List<Int> {
     val regex = Regex("-?\\d+")
-    return regex.findAll(input)
+    return regex.findAll(this)
         .map { it.value.toInt() }
         .toList()
 }
