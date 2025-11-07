@@ -41,8 +41,8 @@ fun String.getNumbersFrom(): List<Int> {
         .toList()
 }
 
-fun <T> groupAdajcentBy(input: Iterable<T>, cmp: (prev: T, current: T) -> Boolean): List<List<T>> {
-    return input.fold(mutableListOf<MutableList<T>>()) { groups, item ->
+fun <T> Iterable<T>.groupAdajcentBy(cmp: (prev: T, current: T) -> Boolean): List<List<T>> {
+    return this.fold(mutableListOf<MutableList<T>>()) { groups, item ->
         val lastGroup = groups.lastOrNull()
 
         when {
