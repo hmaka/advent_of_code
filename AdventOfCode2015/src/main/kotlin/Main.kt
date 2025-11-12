@@ -33,6 +33,21 @@ fun <T, R> List<List<T>>.flatMap2DNotNull(transform: (V, T) -> R?): List<R> {
     return this.flatMapIndexed { i, row -> row.mapIndexedNotNull { j, element -> transform(V(i, j), element) } }
 }
 
+fun <T> List<T>.permutations(): List<List<T>> {
+    if (isEmpty()) return listOf(emptyList())
+
+    val result = mutableListOf<List<T>>()
+    val element = first()
+    val rest = drop(1)
+
+    for (perm in rest.permutations()) {
+        for (i in 0..perm.size) {
+            result.add(perm.take(i) + element + perm.drop(i))
+        }
+    }
+    return result
+}
+
 
 fun String.getNumbersFrom(): List<Int> {
     val regex = Regex("-?\\d+")
